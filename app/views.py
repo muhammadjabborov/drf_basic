@@ -1,7 +1,9 @@
 from rest_framework.generics import ListAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
-from app.serializers import PostSerializers
+from rest_framework.viewsets import ModelViewSet
 
-from app.models import Posts
+from app.serializers import PostSerializers, CommentSerializer
+
+from app.models import Posts, Comment
 
 
 class PostListApiView(ListAPIView):
@@ -26,3 +28,6 @@ class PostUpdateAPIView(UpdateAPIView):
     lookup_url_kwarg = 'pk'
 
 
+class CommentModelViewSet(ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
