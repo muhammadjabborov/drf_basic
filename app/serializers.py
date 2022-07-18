@@ -9,7 +9,7 @@ class PostSerializers(ModelSerializer):
         exclude = ()
 
 
-class CommentSerializer(ModelSerializer):
+class CommentSerializers(ModelSerializer):
     class Meta:
         model = Comment
         exclude = ()
